@@ -1,8 +1,20 @@
 <template>
   <div class="hello">
-    <div v-for="book in books" :key="book.id">
-      {{book.title}}
+    <!-- <div v-if="$apollo.loading">
+      Loading...
     </div>
+    <div v-else v-for="book in books" :key="book.id">
+      {{book.title}}
+    </div> -->
+    <ApolloQuery :query="require('../graphql/users.gql')">
+      <template v-slot="{result : {loading, error, data}}">
+        <div v-if="data">
+          <div v-for="book in books" :key="book.id">
+            {{book.title}}
+          </div>
+        </div>
+      </template>
+    </ApolloQuery>
   </div>
 </template>
 
@@ -11,6 +23,7 @@ import gql from 'graphql-tag'
 
 export default {
   name: 'HelloWorld',
+  //Apollo Client Code
   apollo: {
     books: gql`
     query{
@@ -21,9 +34,9 @@ export default {
     }
     `
   },
+
   data(){
     return{
-      
     }
   }
 }
