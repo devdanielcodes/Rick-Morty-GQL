@@ -1,12 +1,31 @@
 <template>
   <div class="hello">
-    
+    <div v-for="book in books" :key="book.id">
+      {{book.title}}
+    </div>
   </div>
 </template>
 
 <script>
+import gql from 'graphql-tag'
+
 export default {
   name: 'HelloWorld',
+  apollo: {
+    books: gql`
+    query{
+      books{
+        id
+        title
+      }
+    }
+    `
+  },
+  data(){
+    return{
+      
+    }
+  }
 }
 </script>
 
