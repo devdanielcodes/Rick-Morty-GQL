@@ -9,7 +9,7 @@ Vue.use(VueApollo)
 const AUTH_TOKEN = 'apollo-token'
 
 // Http endpoint
-const httpEndpoint = process.env.VUE_APP_GRAPHQL_HTTP || 'https://bb1e5a5187d1.ngrok.io/graphql'
+const httpEndpoint = process.env.VUE_APP_GRAPHQL_HTTP || 'https://rickandmortyapi.com/graphql'
 
 // Config
 const defaultOptions = {

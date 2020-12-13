@@ -1,6 +1,13 @@
-query($count: Int!){
-  books(count: $count){
-    id
-    title
+query{
+  characters{
+    ...ress
   }
+}
+
+
+fragment ress on Characters{
+  results{
+      id
+      name
+    }
 }

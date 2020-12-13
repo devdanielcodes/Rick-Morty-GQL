@@ -1,37 +1,48 @@
 <template>
   <div class="hello">
-    <!-- <div v-if="$apollo.loading">
-      Loading...
+    <div v-for="(item, index) in characters.results" :key="index">
+      {{item.name}}
     </div>
-    <div v-else v-for="book in books" :key="book.id">
-      {{book.title}}
-    </div> -->
-    <ApolloQuery :query="require('../graphql/users.gql')">
-      <template v-slot="{result : {loading, error, data}}">
+    <!-- <ApolloQuery :query="require('../graphql/users.gql')">
+      <template v-slot="{ result: { loading, error, data } }">
+        <div v-if="loading">
+          Loading...
+        </div>
+        <div v-if="error">
+          Could not retrieve data, try again later.
+        </div>
         <div v-if="data">
-          <div v-for="book in books" :key="book.id">
-            {{book.title}}
+          <div v-for="(item, index) in characters.results" :key="index">
+            {{item.name}}
           </div>
         </div>
       </template>
-    </ApolloQuery>
+    </ApolloQuery> -->
   </div>
 </template>
 
 <script>
+//
 import gql from 'graphql-tag'
 
 export default {
   name: 'HelloWorld',
   //Apollo Client Code
   apollo: {
-    books: gql`
-    query{
-      books{
-        id
-        title
+    characters: gql`
+      query{
+        characters{
+          ...ress
+        }
       }
-    }
+
+
+      fragment ress on Characters{
+        results{
+            id
+            name
+          }
+      }
     `
   },
 
