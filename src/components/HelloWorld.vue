@@ -4,8 +4,8 @@
       <img src="../assets/logo.svg" alt="">
 
       <div class="links">
-        <a href="" target="_blank">Github</a>
-        <a href="" target="_blank">Dev</a>
+        <a href="https://github.com/devdanielcodes/test-apollo" target="_blank">Github</a>
+        <a href="https://github.com/devdanielcodes" target="_blank">Dev</a>
       </div>
     </nav>
     <div class="main">
