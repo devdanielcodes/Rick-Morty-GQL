@@ -9,5 +9,11 @@ fragment ress on Characters{
   results{
       id
       name
+    	image
+    	gender
+      species
+    	origin{
+        name
+      }
     }
 }
